@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //klasa per libra
+        function book(title, author, pages){
+            this.title = title;
+            this.author = author;
+            this.pages = pages
+        }
+        //metoda me i qit detajet per autorin
+        book.prototype.displaydetails = function(){
+            console.log("Titulli: " + this.title)
+            console.log("Author: " + this.author)
+            console.log("Pages: " + this.pages)
+        }
+
+        //klasa per librari
+        function library(){
+            this.books = [];
+        }
+
+        //metoda me shtu libr ne librari
+        library.prototype.addbook = function(book){
+            this.books.push(book);
+        }
+
+        //metoda me i qit ne console
+        library.prototype.displaybooks = function(){
+            console.log("Librat qe jane ne librari available:");
+            for(let i = 0; i<this.books.length; i++){
+                console.log("Libri" + (i+1) + ":");
+                this.books[i].displaydetails();
+            }//(i+1)--qe gjithmone me e marr edhe rreshtin tjeter,, nihere p.sh 1, iterimin tjeter e merr 2
+        }
+
+        //krijimi i objekteve
+        let bok1 = new book("Think and Grow Rich","Napoleon Hill",237)
+        let bok2 = new book("To Kill a Mockingbird", "Harper Lee", 247);
+
+        //krijimi i objektit te libraris
+        let libraryr = new library();
+
+        libraryr.addbook(bok1)
+        libraryr.addbook(bok2)
+        libraryr.displaybooks();
+    </script>
+</body>
+</html>

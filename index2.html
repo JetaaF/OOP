@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function student(emri, mbiemri, mosha, drejtimi) {
+            this.emri = emri;
+            this.mbiemri = mbiemri;
+            this.mosha = mosha;
+            this.drejtimi = drejtimi;
+        }
+        student.prototype.ParaqitInfot = function () {
+            console.log("Emri: " + this.emri)
+            console.log("Mbiemri: " + this.mbiemri)
+            console.log("Mosha: " + this.mosha)
+            console.log("Drejtimi: " + this.drejtimi);
+        }
+        function lista() {
+            this.rend = []
+        }
+
+        lista.prototype.shtoEMRA = function (student) {
+            this.rend.push(student)
+        }
+        lista.prototype.hekEMRA = function (student) {
+            this.rend.pop(student)
+        }
+
+        lista.prototype.TREGOneCONSOLE = function () {
+            console.log("Informatat e nxenesve te regjistruar: ");
+            for (let i = 0; i < this.rend.length; i++) {
+                console.log("Nxenesi" + (i + 1) + ":");
+                this.rend[i].ParaqitInfot();
+                console.log("--------------------------------")
+            }
+        }
+        //nxeneesa
+
+        var stt1 = new student("jeta", "fazliu", 17, "arkitektur")
+        var sts2 = new student("jona", "fazliu", 13, "programim")
+        var std3 = new student("kolon", "stokom", 23, "kirurg")
+
+        var ditar = new lista();
+
+        ditar.shtoEMRA(stt1)
+        ditar.shtoEMRA(sts2)
+        ditar.shtoEMRA(std3)
+        ditar.TREGOneCONSOLE()
+
+    </script>
+</body>
+
+</html>
